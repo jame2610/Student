@@ -5,6 +5,7 @@ public class Student {
    
     private String name;
     private int test1, test2, test3;
+    
 
  
      //now we can type: student s = new (); in another class;
@@ -48,7 +49,21 @@ public class Student {
     public String getNames() {
         return name;
     }
-
+    public String validateData(){
+        String em=null;
+        if(name.equals(""))
+        em="name is Required.";
+        if(test1<0 || test1>100 || test2<0 || test2>100 || test3<0 || test3>100)
+        if (em == null)
+        em = "At lest 1 mark is out of acceptable range";
+        else
+            em += "\nAt lest 1 mark is out of the acceptable range";
+        if (em!= null)
+            em += "\nPlease re-enter all the data\n";
+        return em;
+            
+            
+    }
     public int getScore(int i) {
         if (i == 1) {
             return test1;
